@@ -1,0 +1,31 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+        
+    }
+        
+    
+};
+
+//we are defining two pointers "slow", and "fast".
+//we are increasing slow pointer to one step.
+//we are increasing fast pointer to two steps.
+//now we are checking if the fast pointer is null or the next of fast pointer is null, if found so then we are returning the slow pointer.
