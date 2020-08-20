@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int tribonacci(int n) {
+        if (n <= 1) return n;
+        if (n == 2) return 1;
+        int one = 0, two = 1, three = 1, res;
+        for (int i = 3; i<=n; i++)
+        {
+            res = one+two+three;
+            one = two;
+            two = three;
+            three = res;
+        }
+        return res;
+    }
+};
